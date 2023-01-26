@@ -9,8 +9,17 @@ jobs:
     steps:
       - run echo "Hello world"
 
-  say_good_by:
+  say_goodbye:
     docker:
       - image: cimg/vase:2022.05
     steps:
       - run echo "goodbye from circleci pipeline"
+
+workflows:
+  say_hello_and_goodbye:
+    jobs:
+      - say_hello_and_goodbye/run
+      - say_hello
+      - say_goodbye
+        requires
+        - say_hello
