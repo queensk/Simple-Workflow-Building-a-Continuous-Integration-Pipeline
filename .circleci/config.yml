@@ -1,0 +1,16 @@
+# CircleCI configuration file
+
+version: 2.1
+jobs:
+  say_hello:
+    docker:
+      # Primary container image where all steps run
+      - image: cimg/base:2022.05
+    steps:
+      - run echo "Hello world"
+
+  say_good_by:
+    docker:
+      - image: cimg/vase:2022.05
+    steps:
+      - run echo "goodbye from circleci pipeline"
